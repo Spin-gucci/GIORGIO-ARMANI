@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { neon } from "@neondatabase/serverless";
 import { drizzle } from "drizzle-orm/neon-http";
 import { eq, and, ilike } from "drizzle-orm";
-import * as schema from "@/shared/schema";
+import * as schema from "../../../../shared/schema";
 
 const sql = neon(process.env.DATABASE_URL!);
 const db = drizzle(sql, { schema });

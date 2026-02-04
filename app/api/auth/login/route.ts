@@ -1,15 +1,17 @@
 import { NextResponse } from "next/server";
 import { neon } from "@neondatabase/serverless";
 import { drizzle } from "drizzle-orm/neon-http";
-import { eq, or, ilike } from "drizzle-orm";
-import * as schema from "@/shared/schema";
+import { or, ilike } from "drizzle-orm";
+import * as schema from "../../../../shared/schema";
 
 const sql = neon(process.env.DATABASE_URL!);
 const db = drizzle(sql, { schema });
 
 export async function POST(request: Request) {
+  console.log("[v0] Login API called");
   try {
     const { email, password } = await request.json();
+    console.log("[v0] Login attempt for:", email);
 
     if (!email || !password) {
       return NextResponse.json({ error: "Email dan password wajib diisi" }, { status: 400 });
