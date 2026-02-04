@@ -1,5 +1,5 @@
 {
-  "include": ["client/src/**/*", "shared/**/*", "server/**/*"],
+  "include": ["client/src/**/*", "client/pages/**/*", "shared/**/*", "server/**/*", "app/**/*", "components/**/*", "hooks/**/*", "lib/**/*"],
   "exclude": ["node_modules", "build", "dist", "**/*.test.ts"],
   "compilerOptions": {
     "incremental": true,
@@ -17,7 +17,12 @@
     "types": ["node", "vite/client"],
     "paths": {
       "@/*": ["./client/src/*"],
-      "@shared/*": ["./shared/*"]
+      "@shared/*": ["./shared/*"],
+      "@/client/*": ["./client/*"],
+      "@/pages/*": ["./client/pages/*"],
+      "@/components/*": ["./client/src/components/*", "./components/*"],
+      "@/hooks/*": ["./client/src/hooks/*", "./hooks/*"],
+      "@/lib/*": ["./client/src/lib/*", "./lib/*"]
     }
   }
 }
